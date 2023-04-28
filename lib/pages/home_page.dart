@@ -1,15 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_banking/pages/login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePage extends StatelessWidget {
+  HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
+  final user = FirebaseAuth.instance.currentUser!;
 
-class _HomePageState extends State<HomePage> {
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +25,13 @@ class _HomePageState extends State<HomePage> {
               style: GoogleFonts.inter(fontSize: 40, color: Colors.black),
             ),
           ),
-          ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
-          }, child: Text("log out"))
+          Center(
+            child: Text(
+              "Logged in as: "+ user.email!,
+              style: GoogleFonts.inter(fontSize: 40, color: Colors.black),
+            ),
+          ),
+          ElevatedButton(onPressed: signUserOut, child: Text("log out"))
         ],
       ),
     );

@@ -1,5 +1,5 @@
 import 'dart:ffi';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -15,12 +15,61 @@ class LoginPage2 extends StatefulWidget {
 
 class _LoginPage2State extends State<LoginPage2> {
   final _emailController = TextEditingController();
-  bool _passwordVisible = true;
   final _passwordController = TextEditingController();
+
+  bool _passwordVisible = true;
 
   @override
   void initState() {
     _passwordVisible = true;
+  }
+
+  Future showErrorWhileSigningIn(String errorMessage) {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        actions: [
+          ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Okey"))
+        ],
+        title: Text(errorMessage),
+        icon: Icon(Icons.error),
+      ),
+    );
+  }
+
+  void signUserIn() async {
+    //show loading circle
+    showDialog(
+        context: context,
+        builder: ((context) {
+          return Center(
+            child: CircularProgressIndicator(
+              color: Colors.black,
+            ),
+          );
+        }));
+
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: _emailController.text, password: _passwordController.text);
+      //poping loading circle
+      Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      //poping loading circle
+      Navigator.pop(context);
+
+      if (e.code == 'user-not-found') {
+        showErrorWhileSigningIn('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        showErrorWhileSigningIn('Wrong password provided for that user.');
+      } else {
+        showErrorWhileSigningIn(e.toString());
+      }
+    }
   }
 
   Color colorWhenVisibleIcon = Colors.black;
@@ -168,13 +217,7 @@ class _LoginPage2State extends State<LoginPage2> {
                   height: 20,
                 ),
                 GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomePage(),
-                        ));
-                  },
+                  onTap: signUserIn,
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 60),
                     child: Container(

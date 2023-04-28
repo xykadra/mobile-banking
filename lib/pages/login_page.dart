@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mobile_banking/auth/auth_page.dart';
 import 'package:mobile_banking/pages/login_page2.dart';
 
 class LoginPage extends StatefulWidget {
@@ -86,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LoginPage2(),
+                            builder: (context) => AuthPage(),
                           ));
                     },
                     child: Container(
