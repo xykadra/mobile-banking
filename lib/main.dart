@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_banking/firebase_options.dart';
+import 'package:mobile_banking/pages/home_page.dart';
 import 'package:mobile_banking/pages/login_page.dart';
 
 void main() async{
