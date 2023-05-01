@@ -47,33 +47,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.grey,
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.black,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              backgroundColor: Colors.grey,
-              icon: Icon(Icons.credit_card),
-              label: 'Account',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.pie_chart),
-              label: 'Statistics',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.attach_money_sharp),
-              label: 'Cashback',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings_outlined),
-              label: 'Settings',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-        ),
         backgroundColor: Colors.black,
         body: Container(
           height: MediaQuery.of(context).size.height,
@@ -286,7 +259,6 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                ElevatedButton(onPressed: signUserOut, child: Text("Sign out")),
                 Spacer(),
               ],
             ),
