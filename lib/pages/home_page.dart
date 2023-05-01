@@ -8,23 +8,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 class HomePage extends StatefulWidget {
   HomePage({super.key});
 
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-  ];
-
   @override
   State<HomePage> createState() => _HomePageState();
 }

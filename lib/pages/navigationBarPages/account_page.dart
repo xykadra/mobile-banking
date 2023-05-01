@@ -11,9 +11,10 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Account Page"),
-      ),
+      body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column()),
     );
   }
 }

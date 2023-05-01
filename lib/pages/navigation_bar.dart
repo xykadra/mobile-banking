@@ -31,7 +31,6 @@ class _MobileBankingNavigationBarState
     SettingsPage()
   ];
 
-
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
