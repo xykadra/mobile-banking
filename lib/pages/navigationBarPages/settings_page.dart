@@ -14,6 +14,20 @@ class _SettingsPageState extends State<SettingsPage> {
     FirebaseAuth.instance.signOut();
   }
 
+  bool switchForTranslation = true;
+  bool switchForDarkTheme = true;
+  bool switchForNotifications = true;
+
+  final MaterialStateProperty<Icon?> thumbIcon =
+      MaterialStateProperty.resolveWith<Icon?>(
+    (Set<MaterialState> states) {
+      // Thumb icon when the switch is selected.
+      if (states.contains(MaterialState.selected)) {
+        return const Icon(Icons.check);
+      }
+      return const Icon(Icons.close);
+    },
+  );
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -25,18 +39,7 @@ class _SettingsPageState extends State<SettingsPage> {
               padding: const EdgeInsets.symmetric(horizontal: 0.0),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "My profile",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                    ],
-                  ),
-                  Divider(
-                    color: Colors.grey,
-                  ),
+                  Spacer(),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Row(
@@ -208,7 +211,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   Divider(),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -226,41 +229,25 @@ class _SettingsPageState extends State<SettingsPage> {
                                     color: Colors.white, fontSize: 18)),
                           ],
                         ),
-                        Container(
-                            height: 35,
-                            width: 60,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              //color: Colors.yellow[700],
-                              border: Border.all(
-                                color: Colors.yellow[600]!,
-                                // width: 8.0,
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 1.5),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Container(
-                                    height: 30,
-                                    width: 30,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(30),
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )),
+                        Switch(
+                            activeColor: Colors.orange,
+                            inactiveThumbColor: Colors.white,
+                            inactiveTrackColor: Colors.grey[850],
+                            thumbIcon: thumbIcon,
+                            value: switchForTranslation,
+                            onChanged: (bool value) {
+                              setState(() {
+                                switchForTranslation = value;
+                              });
+                            }),
                       ],
                     ),
                   ),
-                  Divider(
-                    color: Colors.grey,
-                  ),
+                  // Divider(
+                  //   color: Colors.grey,
+                  // ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -278,41 +265,25 @@ class _SettingsPageState extends State<SettingsPage> {
                                     color: Colors.white, fontSize: 18)),
                           ],
                         ),
-                        Container(
-                            height: 35,
-                            width: 60,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              //color: Colors.yellow[700],
-                              border: Border.all(
-                                color: Colors.yellow[600]!,
-                                // width: 8.0,
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 1.5),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Container(
-                                    height: 30,
-                                    width: 30,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(30),
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )),
+                        Switch(
+                            activeColor: Colors.orange,
+                            inactiveThumbColor: Colors.white,
+                            inactiveTrackColor: Colors.grey[850],
+                            thumbIcon: thumbIcon,
+                            value: switchForDarkTheme,
+                            onChanged: (bool value) {
+                              setState(() {
+                                switchForDarkTheme = value;
+                              });
+                            }),
                       ],
                     ),
                   ),
-                  Divider(
-                    color: Colors.grey,
-                  ),
+                  // Divider(
+                  //   color: Colors.grey,
+                  // ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -330,33 +301,17 @@ class _SettingsPageState extends State<SettingsPage> {
                                     color: Colors.white, fontSize: 18)),
                           ],
                         ),
-                        Container(
-                            height: 35,
-                            width: 60,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              //color: Colors.yellow[700],
-                              border: Border.all(
-                                color: Colors.yellow[600]!,
-                                // width: 8.0,
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 1.5),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Container(
-                                    height: 30,
-                                    width: 30,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(30),
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )),
+                        Switch(
+                            activeColor: Colors.orange,
+                            inactiveThumbColor: Colors.white,
+                            inactiveTrackColor: Colors.grey[850],
+                            thumbIcon: thumbIcon,
+                            value: switchForNotifications,
+                            onChanged: (bool value) {
+                              setState(() {
+                                switchForNotifications = value;
+                              });
+                            }),
                       ],
                     ),
                   ),
@@ -394,7 +349,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   Divider(
                     color: Colors.grey,
-                  )
+                  ),
+                  Spacer(),
                 ],
               ),
             ),

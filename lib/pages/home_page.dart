@@ -242,12 +242,96 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color.fromRGBO(33, 33, 33, 1),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20))),
+                  height: 221,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0, vertical: 15),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 50,
+                              height: 5,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey[800],
+                                  borderRadius: BorderRadius.circular(12)),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Transactions",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 25),
+                            ),
+                            Icon(
+                              Icons.search,
+                              size: 30,
+                              color: Colors.yellow,
+                            )
+                          ],
+                        ),
+                        Spacer(),
+                        GestureDetector(
+                          onTap: () {},
+                          child: transaction("Pacific Stereo", "Entertainment",
+                              "- \$4,128.11"),
+                        ),
+                        Spacer(),
+                        transaction(
+                            "Ricky Smith", "Card transfer", "- \$3,072.56"),
+                        Spacer(),
+                        transaction("Rainbow Bay Crafts",
+                            "Groceries and supermarkets", "- \$8,049.86"),
+                      ],
+                    ),
+                  ),
+                ),
                 Spacer(),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Row transaction(String name, String type, String money) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          //mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              name,
+              style: TextStyle(color: Colors.grey[100], fontSize: 15),
+            ),
+            Text(
+              type,
+              style: TextStyle(color: Colors.grey),
+            )
+          ],
+        ),
+        Text(
+          money,
+          style: TextStyle(color: Colors.grey[100], fontSize: 20),
+        )
+      ],
     );
   }
 }

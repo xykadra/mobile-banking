@@ -4,7 +4,7 @@ import 'package:mobile_banking/firebase_options.dart';
 import 'package:mobile_banking/pages/home_page.dart';
 import 'package:mobile_banking/pages/login_page.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
