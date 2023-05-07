@@ -12,7 +12,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Statistics page"),
+        child: Text("Statistics Page"),
       ),
     );
   }

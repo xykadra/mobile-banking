@@ -12,7 +12,7 @@ class _CashbackPageState extends State<CashbackPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Cashback page"),
+        child: Text("Admin Page"),
       ),
     );
   }

@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SwitchUtil extends StatefulWidget {
+class SwitchUtil extends StatelessWidget {
   const SwitchUtil({super.key});
 
-  @override
-  State<SwitchUtil> createState() => _SwitchUtilState();
-}
 
-class _SwitchUtilState extends State<SwitchUtil> {
-  @override
+  
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-    );
+    return Scaffold();
   }
 }

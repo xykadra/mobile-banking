@@ -9,7 +9,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  final user = FirebaseAuth.instance.currentUser!;
+  //final user = FirebaseAuth.instance.currentUser!;
   void signUserOut() {
     FirebaseAuth.instance.signOut();
   }
@@ -296,7 +296,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             SizedBox(
                               width: 10,
                             ),
-                            Text("Allowe notifications",
+                            Text("Allow notifications",
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 18)),
                           ],

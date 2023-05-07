@@ -25,7 +25,7 @@ class _MobileBankingNavigationBarState
   }
 
   final List<Widget> _pages = [
-    HomePage(),
+    AccountPage(),
     StatisticsPage(),
     CashbackPage(),
     SettingsPage()
@@ -56,7 +56,7 @@ class _MobileBankingNavigationBarState
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.attach_money_sharp),
-              label: 'Cashback',
+              label: 'BackendTest',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings_outlined),

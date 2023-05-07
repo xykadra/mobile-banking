@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mobile_banking/pages/signUpPages/name_surname_page.dart';
 
 import 'home_page.dart';
 
@@ -236,16 +237,21 @@ class _LoginPage2State extends State<LoginPage2> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 60),
-                  child: Container(
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12)),
-                    child: Center(
-                      child: Text(
-                        "Sign up",
-                        style: GoogleFonts.inter(color: Colors.white),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => NameSurnamePage(),));
+                    },
+                    child: Container(
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.black,
+                          border: Border.all(color: Colors.white),
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Center(
+                        child: Text(
+                          "Sign up",
+                          style: GoogleFonts.inter(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),

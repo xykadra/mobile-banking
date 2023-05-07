@@ -13,18 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final user = FirebaseAuth.instance.currentUser!;
-  void signUserOut() {
-    FirebaseAuth.instance.signOut();
-  }
-
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  //final user = FirebaseAuth.instance.currentUser!;
 
   @override
   Widget build(BuildContext context) {
