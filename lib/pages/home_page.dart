@@ -118,56 +118,7 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.white,
                             // border: Border.all(color: Colors.yellow),
                             borderRadius: BorderRadius.circular(12)),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0, vertical: 8),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Container(
-                                        height: 20,
-                                        child: Image.asset(
-                                          "lib/assets/mastercard.png",
-                                          // color: Colors.white,
-                                        ),
-                                      ),
-                                      Text(
-                                        "**** 8234",
-                                        style: TextStyle(color: Colors.grey),
-                                      )
-                                    ],
-                                  ),
-                                  Text(
-                                    "06/24",
-                                    style: TextStyle(color: Colors.grey),
-                                  )
-                                ],
-                              ),
-                              Spacer(),
-                              Align(
-                                alignment: Alignment.bottomLeft,
-                                child: Text(
-                                  "Balance",
-                                  style: TextStyle(
-                                      color: Colors.grey, fontSize: 22),
-                                ),
-                              ),
-                              Align(
-                                alignment: Alignment.bottomLeft,
-                                child: Text(
-                                  "\$ 42,401.00",
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 30),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        child: Center(child: Text("Hello"),)
                       ),
                     ],
                   ),

@@ -21,12 +21,12 @@ class _AddingCardPageState extends State<AddingCardPage> {
   void signUp(String name, String surname, String email, String password,
       String cardNumber, String expireDate, String cvv) async {
     await FirebaseFirestore.instance.collection('users').add({
-      'first name': name,
-      'last name': surname,
+      'firstName': name,
+      'lastName': surname,
       'email': email,
       'password':password,
-      'credit card number': cardNumber,
-      'expiration date': expireDate,
+      'creditCardNumber': cardNumber,
+      'expirationDate': expireDate,
       'cvv': cvv,
     });
   }

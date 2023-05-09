@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mobile_banking/cards_utils/adding_card_page.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
@@ -43,6 +44,7 @@ class _AccountPageState extends State<AccountPage> {
                 Container(
                   height: 150,
                   child: ListView(
+                    padding: EdgeInsets.only(right: 15, left: 10),
                     scrollDirection: Axis.horizontal,
                     children: [
                       Container(
@@ -103,65 +105,51 @@ class _AccountPageState extends State<AccountPage> {
                         ),
                       ),
                       SizedBox(
-                        width: 10,
+                        width: 30,
                       ),
-                      Container(
-                        //height: 50,
-                        width: 300,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            // border: Border.all(color: Colors.yellow),
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0, vertical: 8),
-                          child: Column(
-                            children: [
-                              Row(
+                      //Card 2 Container
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AddCardPage(),
+                              ));
+                        },
+                        child: Container(
+                            //height: 50,
+                            width: 300,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                // border: Border.all(color: Colors.yellow),
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Center(
+                                child: Container(
+                              padding: EdgeInsets.all(10),
+                              height: 50,
+                              //width: 140,
+                              color: Colors.black,
+                              child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Row(
-                                    children: [
-                                      Container(
-                                        height: 20,
-                                        child: Image.asset(
-                                          "lib/assets/mastercard.png",
-                                          // color: Colors.white,
-                                        ),
-                                      ),
-                                      Text(
-                                        "**** 8234",
-                                        style: TextStyle(color: Colors.grey),
-                                      )
-                                    ],
+                                  Container(
+                                      padding: EdgeInsets.all(2),
+                                      color: Colors.white,
+                                      child: Icon(
+                                        Icons.add,
+                                        color: Colors.black,
+                                      )),
+                                  SizedBox(
+                                    width: 10,
                                   ),
                                   Text(
-                                    "06/24",
-                                    style: TextStyle(color: Colors.grey),
-                                  )
+                                    "Add card",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
                                 ],
                               ),
-                              Spacer(),
-                              Align(
-                                alignment: Alignment.bottomLeft,
-                                child: Text(
-                                  "Balance",
-                                  style: TextStyle(
-                                      color: Colors.grey, fontSize: 22),
-                                ),
-                              ),
-                              Align(
-                                alignment: Alignment.bottomLeft,
-                                child: Text(
-                                  "\$ 42,401.00",
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 30),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                            ))),
                       ),
                     ],
                   ),
